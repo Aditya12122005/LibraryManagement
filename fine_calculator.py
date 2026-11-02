@@ -1,14 +1,9 @@
+FINE_PER_DAY = 5
+
 def calculate_fine(overdue_days):
-
-    if not isinstance(overdue_days, int) or isinstance(overdue_days, bool):
-        raise ValueError("Invalid overdue days")
-
-    if overdue_days < 0:
-        raise ValueError("Days cannot be negative")
-
-    return overdue_days * 5
-
+    if not isinstance(overdue_days, int) or overdue_days < 0:
+        raise ValueError("overdue_days must be a non-negative integer")
+    return overdue_days * FINE_PER_DAY
 
 if __name__ == "__main__":
-    print("Library Fine Calculator")
-    print("Fine for 5 days:", calculate_fine(5))
+    print("Fine for 3 overdue days:", calculate_fine(3))
